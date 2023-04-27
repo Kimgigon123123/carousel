@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery 이벤트</title>
+    <style>
+        body {
+            overflow-x: hidden; /* x축 overflow 숨김 */
+        }
+        #fish {
+            position: relative;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>제이쿼리 이벤트 처리</h1>
+    <p>웹페이지에서 이벤트는 주로 마우스를 클릭, 드래그, 이동하는 동작에 의해
+        발생합니다.
+    </p>
+    <p>웹용 게임제작시에는 키보드 이벤트를 발생합니다.</p>
+    
+    <p id="text">마우스 포인터를 여기에</p>
+    <button id="btn">더블클릭하시구려</button>
+
+    <div id="fish">
+        <img src="images/fish.png" alt="fish">
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+    $(function(){
+        $("#btn").on({
+            click: function(){
+                $("#text").text("마우스 클릭함");
+            },
+            mouseenter: function(){
+                $("#text").text("마우스 닿음");
+            },
+            mouseleave: function(){
+                $("#text").text("마우스 떠남");
+            }
+        });
+
+        $(document).on("mousemove", function(e){  // .mousemove() deprecated v3.3
+            console.log("마우스 좌표 : "+e.clientX+", "+e.clientY);
+        })
+        
+        // $(window).keyup(function(e){
+        //    // 물고기를 -> 오른쪽 이동키 누르면 이동!
+        //     if(e.keyCode == 39) {
+        //         $("#fish").css("left", "+=10"); // left값을 10씩 증가
+        //     } else if(e.keyCode == 37) {                
+        //         $("#fish").css("transform","scaleX(-1)"); // 방향변경
+        //         $("#fish").css("left", "-=10"); // left값을 -10씩 감소
+        //     }
+        // })
+    });
+    </script>
+
+</body>
+</html>

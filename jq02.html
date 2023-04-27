@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery 셀렉터</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+    $(function(){
+        $("#b1").on("click", pic1handler);
+        $("#b2").click(function(){
+            $(".c2").hide();
+        });
+        $("#b3").on("click", function(){
+            $("img").hide();
+        });
+        $("#b4").on("click", function(){
+            $("img").show();
+        });
+    });
+    function pic1handler(){
+        $("#pic1").hide();
+    }
+    </script>
+</head>
+<body>
+    <h1>p.473 jQuery 실습예제</h1>
+    <div class="example">
+        <div class="btns">
+            <button id="b1">#pic1 숨기기</button>
+            <button id="b2">.c2 숨기기</button>
+            <button id="b3">모든 이미지 숨기기</button>
+            <button id="b4">모든 이미지 숨기기 취소</button>
+        </div>
+        <div class="imgs">
+            <img src="https://picsum.photos/id/1/300" id="pic1" class="c1" alt="picsum photos">
+            <img src="https://picsum.photos/id/10/300" id="pic2" class="c2" alt="picsum photos">
+            <img src="https://picsum.photos/id/100/300" id="pic3" class="c3" alt="picsum photos">
+            <img src="https://picsum.photos/id/1000/300" id="pic4" class="c4" alt="picsum photos">
+        </div>        
+    </div>
+</body>
+</html>

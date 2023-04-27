@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery 선택자 문법</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reseter.css/2.0.0/reseter.min.css" integrity="sha512-gCJkkUMGTe73+FMwog6gIBCVJIMXRoc21l6/IPCuzxCex/1sxvO8ctb6Zd4/WWs2UMqmtnDrAdhJht5pEY0LXg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <style>
+        header {
+            height: 300px;
+            background: gold;
+        }
+        .main {
+            height: 500px;
+        }
+        footer {
+            height: 200px;
+            background: #FF6633;
+            color: white;
+        }
+        #popup {
+            display: none;
+            width: 400px;
+            height: 400px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        #closePop {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            background-color: black;
+            color: white
+        }
+    </style>
+</head>
+<body>
+    <h1 class="d-none">jQuery 기본 사용법</h1>
+    <div id="popup">
+        <img src="images/event.jpg" alt="선착순 이벤트">
+        <button id="closePop">닫기</button>
+    </div>
+    <div class="mode">
+        <button id="dayBtn">낮</button>
+        <button id="nightBtn">밤</button><!-- 배경색, 글자색 CSS를 조작/제어 -->
+    </div>
+    <header>
+        <p>이것은 헤더입니다.</p>
+    </header>
+    <section class="main">
+        <article>
+            <div id="box">
+                <p>이것은 네모 상자입니다.</p>
+            </div>
+        </article>
+    </section>
+    <footer>
+        <p>이것은 푸터입니다.</p>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+    $(function(){
+        /*
+        // 1.Get the HTML contents of the first element in the set of matched elements.
+        //console.log($("#box").html());
+
+        // 2.Set the HTML contents of the first element in the set of matched elements. 
+        setTimeout(function(){
+            $("#box").html("<strong>box입니다</strong>"); 
+        }, 3000); // 3000ms 즉, 3초 지나고 .html() 조작
+        */
+
+        // #nightBtn에 접근
+        var darkBtn = $("#nightBtn");
+        darkBtn.click(function(){
+            $("body").css({
+                backgroundColor: "rgb(0,0,0)",
+                color: "white",
+                fontSize: "2rem"
+            });
+            console.log("배경색"+$("body").css("background-color"));
+            console.log("글자색"+$("body").css("color"));
+            console.log("글자크기"+$("body").css("font-size"));
+        });
+
+        // #daytBtn에 접근, 클릭 이벤트 등록, 처리할 로직 작성 (스타일 조작!)
+        var dayBtn = $("#dayBtn");
+        dayBtn.click(function(){
+            $("body").css({
+                backgroundColor: "white",
+                color: "black",
+                fontSize: "1rem"
+            });
+            console.log("배경색"+$("body").css("background-color"));
+            console.log("글자색"+$("body").css("color"));
+            console.log("글자크기"+$("body").css("font-size"));
+        });
+
+        // 팝업 -  DOM 로드 뒤, 3초 후 팝업창을 보여주자!
+        var timerID = setTimeout(lazyPop, 3000); // 3초 뒤 lazyPop 함수 호출
+
+        if(localStorage.getItem("isRead")) {
+            clearTimeout(timerID);
+        }
+
+        // 팝업 - 닫기 버튼 구현
+        // .click()은 v3.6.4에서 deprecated(더이상 사용되지 않는) 될것이라고 예고가 된 상태
+        // 앞으로는 가급적 .on() 을 사용하도록 해야 함.
+        $("#closePop").click(closePopup);
+
+        // 여기에 : 함수 선언식
+        function closePopup(){
+            //console.log("팝업닫기!!");
+            $("#popup").hide(200, function(){
+                alert("팝업을 닫았습니다!");
+                localStorage.setItem("isRead", "true");
+            }); // 200 milli seconds (0.2초)
+
+            // 로컬스토리지 라는 브라우저 저장소에 isRead라는 변수의 불린값을 false 에서 true로 변경
+           
+        }
+
+    });
+    function lazyPop(){
+        // 처음부터 보이지 않는 #popup을 3초가 지난 뒤 보여주는 코드
+        // console.log($("#popup").css("display"));
+        $("#popup").css("display", "block"); // flex를 써도 됩니다.
+    }    
+    </script>
+</body>
+</html>

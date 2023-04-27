@@ -1,0 +1,96 @@
+.d-none {
+    display: none;
+  }
+  .material-icons {
+    font-family: "Material Icons";
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px; /* Preferred icon size */
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+
+    /* Support for all WebKit browsers. */
+    -webkit-font-smoothing: antialiased;
+    /* Support for Safari and Chrome. */
+    text-rendering: optimizeLegibility;
+
+    /* Support for Firefox. */
+    -moz-osx-font-smoothing: grayscale;
+
+    /* Support for IE. */
+    font-feature-settings: "liga";
+  }
+
+  header {
+    border-bottom: 1px solid #ccc;
+  }
+  footer {
+    background: black;
+    color: white;
+  }
+  .header-wrap,
+  .footer-wrap {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+  }
+  #carousel {
+    height: 400px;
+    overflow: hidden;
+    position: relative;
+  }
+  .img {
+    height: 400px;
+    position: absolute;
+    width: 100vw;
+    transition: all .4s ease-in-out;
+    opacity: .5;
+  }
+  .bg-pink {
+    background: pink;
+  }
+  .bg-coral {
+    background: coral;
+  }
+  .bg-purple {
+    background: purple;
+  }
+
+  .controls {
+    position: absolute;
+    bottom: 5%;
+    right: 20%;
+    display: flex;
+    gap: .8rem;
+    z-index: 1000;
+  }
+  .round {
+    border: 0;
+    background: rgba(0,0,0,.3);
+    border-radius: 50%;
+    color: white;
+    width: 50px;
+    height: 50px;
+  }
+  .info {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0,0,0,.3);
+    border-radius: 50px;
+    width: 100px;
+    color: white;
+    font-size: 1.250rem
+  }
+
+  .top {
+    z-index: 1;
+    opacity: 1; /* 드라마틱하게 투명->선명 */
+  }

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>jQuery 캐러셀</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/reseter.css/2.0.0/reseter.min.css"
+      integrity="sha512-gCJkkUMGTe73+FMwog6gIBCVJIMXRoc21l6/IPCuzxCex/1sxvO8ctb6Zd4/WWs2UMqmtnDrAdhJht5pEY0LXg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Maven+Pro:wght@600&family=Noto+Sans+KR&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- material icon-->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="css/carousel.css">
+  </head>
+  <body>
+    <h1 class="d-none">jQuery 이벤트를 이용한 캐러셀 만들기</h1>
+    <header>
+      <div class="header-wrap">
+        <div class="logo">logo</div>
+        <nav>
+          <ul id="gnb">
+            <li><a href="#">menu1</a></li>
+            <li><a href="#">menu2</a></li>
+            <li><a href="#">menu3</a></li>
+            <li><a href="#">menu4</a></li>
+          </ul>
+        </nav>
+        <ul class="links">
+          <li><a href="#">link1</a></li>
+          <li><a href="#">link2</a></li>
+        </ul>
+      </div>
+    </header>
+    <!-- 캐러셀은 보통 header와 section 사이에 배치-->
+    <div id="carousel">
+      <div class="imgs">
+        <div class="img bg-pink top">
+            img1
+        </div>
+        <div class="img bg-coral">
+            img2
+        </div>
+        <div class="img bg-purple">
+            img3
+        </div>
+        <div class="img bg-coral">
+            img4
+        </div>
+        <div class="img bg-purple">
+            img5
+        </div>
+      </div>
+      <div class="controls">
+        <button id="pause" class="round">
+            <span class="material-icons">
+                pause
+            </span>
+        </button>
+        <div class="info">
+          <div class="pages">1 / 3</div>
+          <div class="details">&plus;</div>
+        </div>
+        <div class="navigate">
+          <button id="prevBtn" class="round">
+            <span class="material-icons"> navigate_before </span>
+          </button>
+          <button id="nextBtn" class="round">
+            <span class="material-icons"> navigate_next </span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <section class="main">
+      <h2 class="d-none">본문</h2>
+      <article>
+        <h3>컨텐츠를 준비중입니다.</h3>
+      </article>
+    </section>
+    <footer>
+      <div class="footer-wrap">
+        <div class="logo2">logo2</div>
+        <p>&copy;test.</p>
+      </div>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+    // 전역 변수 : 어디서든 접근할 수 있게 (scope)
+    var totalImg = $(".imgs > div").length; // 총 이미지 갯수
+    var isPlaying = true; // 자동재생 여부
+    var pageNum = 1; // 시작 페이지 번호
+    $(function(){
+        updatePageNum(); // 페이지가 로드되면, 페이지 번호를 업데이트!
+
+        // 1.navigate-next 버튼에 접근
+        $("#prevBtn").on("click", prevScene); // 이전 씬
+        $("#nextBtn").on("click", nextScene); // 다음 씬
+
+        // 3.pause 버튼에 접근, 클릭시 메세지 출력(=구체적인 동작 구현)
+        $("#pause").on("click", function(){
+            if(isPlaying) {
+                console.log("재생중, 클릭시 일시정지로 변경!");
+                $("#pause span").text("play_arrow");
+                isPlaying = false;
+            } else {
+                console.log("일시정지중, 클릭시 재생으로 변경!");
+                $("#pause span").text("pause");
+                isPlaying = true;
+            }
+        })
+    });
+    function nextScene() { // 함수(function)의 선언식
+        //var current = $(".imgs > div:nth-child(1)"); // .imgs 자손 div중 첫번째
+        var current = $(".imgs > div.top"); // .imgs 자손 div중 클래스가 top 인것
+        var next = current.next();  // .top 클래스를 가진 div 다음 오는 div
+        if(pageNum >= 5) {
+            pageNum = 1;
+        } else {
+            pageNum++;
+        }
+        // var current = $(".imgs > div.top");
+        if(next.length) {
+            $(".pages").text("2 / "+totalImg);
+            $(".imgs > div.top").prev().removeClass("top");
+            $(".imgs > div.top").next().addClass("top");
+        } else { // 없으면,
+            $(".imgs > div:nth-child(1)").addClass("top");
+            $(".imgs > div:nth-last-child(1)").removeClass("top");
+        }
+        updatePageNum();
+    }
+    function prevScene() { // 함수(function)의 선언식
+        updatePageNum();
+    }
+    function updatePageNum(){
+        $(".pages").text(pageNum+" / "+totalImg);
+    }
+    </script>
+  </body>
+</html>
