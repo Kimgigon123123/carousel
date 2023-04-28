@@ -1,0 +1,129 @@
+
+:: jQuery 선택자
+
+1) 기본 선택자
+
+$("태그명")
+$(".클래스명")  : css 방식의 선택자
+$("#아이디명")  : css 방식의 선택자
+$("li:nth-child(1)") : css 방식의 선택자
+
+2) 관계 선택자
+
+.next() : 다음 형제 요소 선택자(*)
+.prev() : 이전 형제 요소 선택자(*)
+.siblings() : (모든) 형제 요소 선택자(*)
+.parent() : 부모 요소 선택자(*)
+.parents() : (조상) 요소 선택자
+.children() : 자식 요소 선택자(*)
+.closest() : 가장 인접한 요소 선택자
+
+3) 필터링 메소드
+.first() : 요소의 첫번째 요소을 선택하는 선택자
+.last() :          "  마지막  요소을      "
+.eq(index) : 지정한 index에 해당하는 요소을 선택하는 선택자
+
+==== 조작 메소드 ======
+.css()
+.html()
+.text()
+.val()
+.props()
+
+.addClass();
+.removeClass();
+.toggleClass();
+
+
+※ 시간 관련 메소드 (javascript)
+
+1) 매시간 반복
+.setInterval(callback, time) : 매 time(밀리초) 마다 callback 호출(=실행)
+.clearInterval() : interval을 해제
+
+2) 일정시간 후 한번만 실행
+.setTimeout(callback, time) : 일정 time(밀리초) 후 callback 호출
+.clearTimeout() : timeout을 해제
+
+
+※ 브라우저 객체 메소드
+
+브라우저 location.href = "새롭게 이동할 (문서) 주소";
+
+
+1. 자바스크립트 Core (기본개념, API)
+2. 문서 객체(DOM)                                              ===> jQuery : 
+    - document.title = "제이쿼리실습";
+    - document.querySelector();
+      .... many ...
+
+3. 브라우저 객체(BOM)
+
+
+
+  << 캐러셀 제작 >>
+
+ 1. 좌우/상하 움직임이 있는 캐러셀
+   - 가장 흔함
+
+ 2. 움직임 없이 제자리에서 크로스(?)되듯이 바뀌는 캐러셀
+   - 샥 바뀌는거 (Fade)
+
+ 3. 특수한 효과 : 
+  - 3D , 퍼즐조각이 채워지듯이? 블라인드처럼 나타나거나 사라지는?
+  - 실험적인 성격의 사이트
+  - 지극히 개인적인? 사이트
+
+※ 상업적 사용시 라이센스 꼭 확인!!
+
+<< 남이 만들어둔거, 무료로 갖다 쓰라고 해놓고 비용지불하게 하는? >>
+
+- 라이센스를 꼭 확인!!
+
+1) swiper 캐러셀   -- 11st.co.kr 메인 캐러셀에서 사용! 
+https://swiperjs.com/demos
+※ 순수 Javascript 버전! jQuery 아님~
+
+
+2) slick 캐러셀
+https://kenwheeler.github.io/slick/
+
+3) bxslider 캐러셀
+https://bxslider.com/
+
+4) Owl Carousel2
+https://owlcarousel2.github.io/OwlCarousel2/
+
+etc. ?? 캐러셀 , ?? 슬라이드, ?? jquery 캐러셀/슬라이드 검색 ==> 겁나 많아서
+알아서 잘 골라서 쓰면 됩니다 :p
+
+※ 시간없고, 프로젝트 규모가 크고 기간이 촉박 ==> 갖다 쓰거나 사다 쓰거나
+
+※ 모든 종류의 캐러셀이 존재하지 않음 ==> 직접 만들어야 할 수 있음
+
+11번가    swiper 사용
+쿠팡은     직접 만들어서 사용 (한것 같음)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

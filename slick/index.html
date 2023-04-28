@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>남이 만든 jQuery캐러셀 사용하기</title>
+    <!-- slick -->
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+  </head>
+  <body>
+    <h1>그냥 갖다 쓰는 방법!</h1>
+    <p>
+      편함,..상업적으로 이용시 합당한 비용을 지불해야하거나..(계속 증가...) 할수
+      있음 (라이센스를 확인하세요~)
+    </p>
+
+    <h2>어쨋거나 많이 사용하는 slick 캐러셀</h2>
+    <!-- 1.slick HTML layout -->
+    <div class="your-class">
+      <div>
+        <img src="https://picsum.photos/id/1000/1200/300" alt="picsum photos">
+      </div>
+      <div>
+        <img src="https://picsum.photos/id/1001/1200/300" alt="picsum photos">
+      </div>
+      <div>
+        <img src="https://picsum.photos/id/1002/1200/300" alt="picsum photos">
+      </div>
+    </div>
+    <script
+      type="text/javascript"
+      src="//code.jquery.com/jquery-1.11.0.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="//code.jquery.com/jquery-migrate-1.2.1.min.js"
+    ></script>
+    <!-- 배포용 <script type="text/javascript" src="slick/slick.min.js"></script> -->
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $(".your-class").slick({
+            accessibility: true,
+            autoplay: true,
+            fade: true,
+            speed: 1000
+        });
+      });
+    </script>
+  </body>
+</html>

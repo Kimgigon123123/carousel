@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>남이 만든 jQuery캐러셀 사용하기</title>
+    <!-- swiper -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
+    />
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="css/swiper-custom.css" />
+  </head>
+  <body>
+    <h1>그냥 갖다 쓰는 방법!</h1>
+    <p>
+      편함,..상업적으로 이용시 합당한 비용을 지불해야하거나..(계속 증가...) 할수
+      있음
+    </p>
+
+    <h2>11번가에서 사용한 swiper 캐러셀</h2>
+    <!-- swiper layout HTML -->
+    <!-- Slider main container -->
+    <div class="swiper">
+      <!-- Additional required wrapper -->
+      <div class="swiper-wrapper">
+        <!-- Slides -->
+        <div class="swiper-slide">
+          <img
+            src="https://picsum.photos/id/1000/1200/400"
+            alt="picsum photos"
+          />
+        </div>
+        <div class="swiper-slide">
+          <img
+            src="https://picsum.photos/id/1001/1200/400"
+            alt="picsum photos"
+          />
+        </div>
+        <div class="swiper-slide">
+          <img
+            src="https://picsum.photos/id/1002/1200/400"
+            alt="picsum photos"
+          />
+        </div>
+        ...
+      </div>
+      <!-- If we need pagination -->
+      <div class="swiper-pagination"></div>
+
+      <!-- If we need navigation buttons -->
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+
+      <!-- If we need scrollbar -->
+      <div class="swiper-scrollbar"></div>
+    </div>
+    <script src="script/swiper_custom.js"></script>
+  </body>
+</html>

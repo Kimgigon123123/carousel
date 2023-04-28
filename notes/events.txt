@@ -37,10 +37,16 @@ API들이 생성할 수도 있습니다.
 ※ v3.3 이상부터는 .on() 또는 .trigger() 만 사용하기
 
 2) 키보드 이벤트
-.keypress() : 키를 
-.keydown() : 키ㄹ
+.keypress()
+.keydown() 
 .keyup()
 
 3) 폼 이벤트
+.submit()
+.focus()   ---> .on("focus", () => {...}) 로 대체
+.blur()      ---> .on("blur", () => {...}) 로 대체
 
 4) 도큐먼트/윈도우 이벤트
+.ready()
+.resize()
+.scroll()
